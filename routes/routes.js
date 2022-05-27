@@ -56,3 +56,13 @@ router.post("/", async function (req, res) {
     };
     res.json(responseObject);
 })
+
+router.put("/:id", async function (req, res) {
+    const updatedGame = await updateGameById(req.params.id, req.body);
+    const responseObject = {
+        success: true,
+        message: "Update successful",
+        data: updatedGame
+    }
+    res.json(responseObject);
+}) 

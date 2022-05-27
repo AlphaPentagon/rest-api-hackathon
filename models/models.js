@@ -27,12 +27,18 @@ export async function searchGameByTitle(searchTerm) {
 
 export async function createGame(newGame) {
     const res = await pool.query(
-        `INSERT INTO games (title, releaseDate, developer, avgCompletion) VALUES ($1, $2, $3, $4) RETURNING *`,
+        `INSERT INTO games (title, releaseDate, developer, avgCompletion) VALUES ($1, $2, $3, $4) RETURNING *;`,
         [newGame.title, newGame.releaseDate, newGame.developer, newGame.avgCompletion]
     );
     return res.rows;
 }
 
-export function updateGameById() { }
+export function updateGameById(id, updatedGame) {
+    const res = await pool.query(
+        `UPDATE games SET (title, releaseDate, developer, avgCompletion) VALUES ($1, $2, $3, $4) WHERE game_id = $5 RETURNING *;`,
+        [updatedGame.title, updatedGame.releaseDate, updatedGame.developer, updatedGame.avgCompletion, id]
+    );
+    return res.rows;
+}
 
 export function deleteGameById() { }

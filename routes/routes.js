@@ -65,4 +65,14 @@ router.put("/:id", async function (req, res) {
         data: updatedGame
     }
     res.json(responseObject);
-}) 
+})
+
+router.delete("/:id", async function (req, res) {
+    const deletedGame = await deleteGameById(req.params.id);
+    const responseObject = {
+        success: true,
+        message: "Delete successful",
+        data: deletedGame
+    }
+    res.json(responseObject);
+})

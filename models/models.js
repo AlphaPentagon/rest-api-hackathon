@@ -17,15 +17,21 @@ export async function getGameById(id) {
 
 export async function searchGameByTitle(searchTerm) {
     const res = await pool.query(
-        `SELECT * FROM games WHERE LOWER(title) LIKE LOWER('%' || $1 || '%');`, 
-        [searchTerm]);    
+        `SELECT * FROM games WHERE LOWER(title) LIKE LOWER('%' || $1 || '%');`,
+        [searchTerm]);
     return res.rows;
-    
- }
+
+}
 
 
 
-export function createGame() { }
+export async function createGame(newGame) {
+    const res = await pool.query(
+        `INSERT INTO games (title, releaseDate, developer, avgCompletion) VALUES ($1, $2, $3, $4) RETURNING *`,
+        [newGame.title, newGame.releaseDate, newGame.developer, newGame.avgCompletion]
+    );
+    return res.rows;
+}
 
 export function updateGameById() { }
 

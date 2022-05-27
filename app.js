@@ -52,15 +52,15 @@ app.use("/games", router);
 //      getGames, - GET✅
 //     getGameById, GET✅
 //     searchGameByTitle, GET✅
-//     createGame, POST
-//      updateGameById, PUT
-//      deleteGameById, DELETE
+//     createGame, POST ✅
+//      updateGameById, PUT ✅
+//      deleteGameById, DELETE 
 
 
 //   - Create routes to interact with models
 //      getGames, - GET✅
 //     getGameById, GET✅
 //     searchGameByTitle, GET✅
-//     createGame, POST
-//      updateGameById, PUT
+//     createGame, POST ✅
+//      updateGameById, PUT ✅
 //      deleteGameById, DELETE

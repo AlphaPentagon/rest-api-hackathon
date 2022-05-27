@@ -33,9 +33,14 @@ export async function createGame(newGame) {
     return res.rows;
 }
 
-export function updateGameById(id, updatedGame) {
+export async function updateGameById(id, updatedGame) {
     const res = await pool.query(
-        `UPDATE games SET (title, releaseDate, developer, avgCompletion) VALUES ($1, $2, $3, $4) WHERE game_id = $5 RETURNING *;`,
+        `UPDATE games SET 
+            title = $1,
+            releaseDate = $2,
+            developer = $3,
+            avgCompletion = $4
+        WHERE game_id = $5 RETURNING *;`,
         [updatedGame.title, updatedGame.releaseDate, updatedGame.developer, updatedGame.avgCompletion, id]
     );
     return res.rows;

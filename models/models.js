@@ -15,7 +15,15 @@ export async function getGameById(id) {
     return res.rows;
 }
 
-export function getGameByTitle() { }
+export async function searchGameByTitle(searchTerm) {
+    const res = await pool.query(
+        `SELECT * FROM games WHERE LOWER(title) LIKE LOWER('%' || $1 || '%');`, 
+        [searchTerm]);    
+    return res.rows;
+    
+ }
+
+
 
 export function createGame() { }
 

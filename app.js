@@ -15,10 +15,9 @@ app.listen(PORT, function () {
   console.log(`Server is running on port ${PORT}`);
 });
 
-app.use(express.json())
+app.use(express.json());
 
-app.use("/games", router)
-
+app.use("/games", router);
 
 // PLAN:
 // - Decide on hackathon database idea ✅
@@ -50,6 +49,18 @@ app.use("/games", router)
 //     - Test connection to database (SELECT NOW())✅
 
 //   - Create models for CRUD operations
-        
+//      getGames, - GET✅
+//     getGameById, GET✅
+//     searchGameByTitle, GET✅
+//     createGame, POST
+//      updateGameById, PUT
+//      deleteGameById, DELETE
+
+
 //   - Create routes to interact with models
-        // - 
+//      getGames, - GET✅
+//     getGameById, GET✅
+//     searchGameByTitle, GET✅
+//     createGame, POST
+//      updateGameById, PUT
+//      deleteGameById, DELETE

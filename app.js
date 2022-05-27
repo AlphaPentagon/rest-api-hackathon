@@ -1,12 +1,14 @@
 import express from "express";
 import { router } from "./routes/routes.js";
-import path from "path";
+import { html } from "./config.js";
 
 const app = express();
 const PORT = process.env.port || 3000;
 
-app.get("/", function(req, res){
-  res.sendFile(path.join(__dirname, '/index.html'))
+app.use(express.static("public"));
+
+app.get("/", function (req, res) {
+  res.sendFile(html)
 });
 
 // test route

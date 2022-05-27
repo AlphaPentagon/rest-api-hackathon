@@ -25,7 +25,7 @@ router.get("/", async function (req, res) {
             data: searchedGame,
         };
         res.json(responseObject);
-    } else {        
+    } else {
         const allGames = await getGames();
         const responseObject = {
             success: true,

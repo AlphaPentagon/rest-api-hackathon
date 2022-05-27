@@ -46,4 +46,10 @@ export async function updateGameById(id, updatedGame) {
     return res.rows;
 }
 
-export function deleteGameById() { }
+export async function deleteGameById(id) {
+    const res = await pool.query(
+        `DELETE from games WHERE game_id = $1 RETURNING *;`,
+        [id]
+    );
+    return res.rows;
+}

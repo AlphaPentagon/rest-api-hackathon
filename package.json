@@ -8,7 +8,10 @@
     "start": "node app.js",
     "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:createTable": "node -r dotenv/config ./scripts/createTable.js"
+    "db:createTable": "node -r dotenv/config ./scripts/createTable.js",
+    "db:populateTable": "node -r dotenv/config ./scripts/populateTable.js",
+    "db:dropTable": "node -r dotenv/config ./scripts/dropTable.js",
+    "db:resetTable": "node -r dotenv/config ./scripts/dropTable.js && node -r dotenv/config ./scripts/createTable.js && node -r dotenv/config ./scripts/populateTable.js"
   },
   "keywords": [],
   "author": "",

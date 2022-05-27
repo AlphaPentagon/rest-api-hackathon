@@ -1,4 +1,5 @@
 import express from "express";
+import { router } from "./routes/routes.js";
 const app = express();
 const PORT = process.env.port || 3000;
 
@@ -13,6 +14,11 @@ app.get("/", function (req, res) {
 app.listen(PORT, function () {
   console.log(`Server is running on port ${PORT}`);
 });
+
+app.use(express.json())
+
+app.use("/games", router)
+
 
 // PLAN:
 // - Decide on hackathon database idea ✅
@@ -43,7 +49,7 @@ app.listen(PORT, function () {
 //     - Create a .env file and paste credentials into the file - add file to .gitignore✅
 //     - Test connection to database (SELECT NOW())✅
 
-//   - Import pg.pool
-//   - Import .env globally
 //   - Create models for CRUD operations
+        
 //   - Create routes to interact with models
+        // - 

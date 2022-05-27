@@ -1,7 +1,13 @@
 import express from "express";
 import { router } from "./routes/routes.js";
+import path from "path";
+
 const app = express();
 const PORT = process.env.port || 3000;
+
+app.get("/", function(req, res){
+  res.sendFile(path.join(__dirname, '/index.html'))
+});
 
 // test route
 app.get("/", function (req, res) {
@@ -54,7 +60,7 @@ app.use("/games", router);
 //     searchGameByTitle, GET✅
 //     createGame, POST ✅
 //      updateGameById, PUT ✅
-//      deleteGameById, DELETE 
+//      deleteGameById, DELETE ✅
 
 
 //   - Create routes to interact with models
@@ -63,4 +69,20 @@ app.use("/games", router);
 //     searchGameByTitle, GET✅
 //     createGame, POST ✅
 //      updateGameById, PUT ✅
-//      deleteGameById, DELETE
+//      deleteGameById, DELETE✅
+
+// BONUS
+// Link up to front end
+// create index.html, styles.css
+
+// tell our router to display an html page when visiting the base url
+
+// Create a button to get all games, display the result in a paragraph element
+
+// create html template
+  // create button
+    // when you click on it, send a GET request to the router to get all games
+  // p element
+    // display the result of the GET request in the p element
+
+

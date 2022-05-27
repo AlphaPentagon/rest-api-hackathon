@@ -48,7 +48,7 @@ export async function updateGameById(id, updatedGame) {
 
 export async function deleteGameById(id) {
     const res = await pool.query(
-        `DELETE from games WHERE game_id = $1 RETURNING *;`,
+        `DELETE FROM games WHERE game_id = $1 RETURNING *;`,
         [id]
     );
     return res.rows;
